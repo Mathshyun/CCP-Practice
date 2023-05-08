@@ -29,8 +29,4 @@ def f_rec5(tree):
         return -1
     if not tree[1]:
         return tree[0]
-    lsub = f_rec5(tree[1])
-    if tree[0] <= lsub:
-        return tree[0]
-    else:
-        return lsub
+    return f_rec5(tree[1])
