@@ -123,9 +123,15 @@ class Square(Shape):
         self.x = self.y = a
 
 class DoubleSquare(Square):
-    def __init__(self, a):
-        self.x = 2 * a
-        self.y = a
+    def area(self):
+        return 2 * self.x ** 2
+    
+    def perimeter(self):
+        return 6 * self.x
 
 class InsideDoubleSquare(Square):
-    pass #TODO
+    def area(self):
+        return (self.x ** 2) / 4.0
+    
+    def perimeter(self):
+        return 2 * self.x
