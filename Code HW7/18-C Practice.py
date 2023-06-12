@@ -79,19 +79,53 @@ if __name__ == "__main__":
     )
 
 #6
-def make_Dict_number(lst):
+def make_Dict_number_1(lst):    # get() not used
     elements = set(lst)
     result = {}
     for i in elements:
         result[i] = lst.count(i)
     return result
 
-def most_Frequent(lst):
-    pass #TODO
+def make_Dict_number_2(lst):    # get() used
+    result = {}
+    for i in lst:
+        if result.get(i) == None:
+            result[i] = 1
+        else:
+            result[i] += 1
+    return result
+
+def most_Frequent_1(lst):   # get() not used
+    elements = set(lst)
+    maxcnt = 0
+    maxelement = None
+    for i in elements:
+        curcnt = lst.count(i)
+        if (curcnt > maxcnt):
+            maxcnt = curcnt
+            maxelement = i
+    return maxelement
+
+def most_Frequent_2(lst):   # get() used
+    result = {}
+    maxcnt = 0
+    maxelement = None
+    for i in lst:
+        if result.get(i) == None:
+            result[i] = 1
+        else:
+            result[i] += 1
+        curcnt = result.get(i)
+        if curcnt > maxcnt:
+            maxcnt = curcnt
+            maxelement = i
+    return maxelement
 
 if __name__ == "__main__":
-    print (make_Dict_number([2,5,3,4,6,4,2,4,5]))
-    print (most_Frequent([2,5,3,4,6,4,2,4,5]))
+    print (make_Dict_number_1([2,5,3,4,6,4,2,4,5]))
+    print (make_Dict_number_2([2,5,3,4,6,4,2,4,5]))
+    print (most_Frequent_1([2,5,3,4,6,4,2,4,5]))
+    print (most_Frequent_2([2,5,3,4,6,4,2,4,5]))
 
 #7
 def histogram(d):
